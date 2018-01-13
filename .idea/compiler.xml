@@ -10,7 +10,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="KM-Agent-Java" target="1.9" />
+      <module name="KM-Agent-Java" target="9" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="--add-modules=jdk.incubator.httpclient" />
   </component>
 </project>

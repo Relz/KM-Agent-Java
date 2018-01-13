@@ -12,7 +12,6 @@ public class ResponseConverter implements JsonDeserializer<ResponseInterface> {
 			JsonElement json, Type type, JsonDeserializationContext context
 	) throws JsonParseException {
 		JsonObject object = json.getAsJsonObject();
-		System.out.println(object);
 		Gson gson = new GsonBuilder().registerTypeAdapter(Text.class, new TextConverter()).create();
 		JsonElement error = object.get("error");
 		JsonElement errorType = object.get("error_type");
