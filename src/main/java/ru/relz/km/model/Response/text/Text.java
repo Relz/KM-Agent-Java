@@ -11,22 +11,22 @@ public class Text implements TextInterface {
 		this.agent = agent;
 	}
 
-	private String notification;
+	private final String notification;
 	public String getNotification() {
 		return notification;
 	}
 
-	private Code code;
+	private final Code code;
 	public Code getCode() {
 		return code;
 	}
 
-	private CaveInterface currentCave;
+	private final CaveInterface currentCave;
 	public CaveInterface getCurrentCave() {
 		return currentCave;
 	}
 
-	private AgentInterface agent;
+	private final AgentInterface agent;
 	public AgentInterface getAgent() {
 		return agent;
 	}

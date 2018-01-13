@@ -11,37 +11,37 @@ public class Cave implements CaveInterface {
 		this.isBones = isBones;
 	}
 
-	private int x;
+	private final int x;
 	public int getX() {
 		return x;
 	}
 
-	private int y;
+	private final int y;
 	public int getY() {
 		return y;
 	}
 
-	private boolean isGold;
+	private final boolean isGold;
 	public boolean isGold() {
 		return isGold;
 	}
 
-	private boolean isMonster;
+	private final boolean isMonster;
 	public boolean isMonster() {
 		return isMonster;
 	}
 
-	private boolean isHole;
+	private final boolean isHole;
 	public boolean isHole() {
 		return isHole;
 	}
 
-	private boolean isWind;
+	private final boolean isWind;
 	public boolean isWind() {
 		return isWind;
 	}
 
-	private boolean isBones;
+	private final boolean isBones;
 	public boolean isBones() {
 		return isBones;
 	}

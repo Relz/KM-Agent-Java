@@ -11,27 +11,27 @@ public class Agent implements AgentInterface {
 		this.isAlive = isAlive;
 	}
 
-	private int arrowCount;
+	private final int arrowCount;
 	public int getArrowCount() {
 		return arrowCount;
 	}
 
-	private String name;
+	private final String name;
 	public String getName() {
 		return name;
 	}
 
-	private Direction direction;
+	private final Direction direction;
 	public Direction getDirection() {
 		return direction;
 	}
 
-	private int legsCount;
+	private final int legsCount;
 	public int getLegsCount() {
 		return legsCount;
 	}
 
-	private boolean isAlive;
+	private final boolean isAlive;
 	public boolean isAlive() {
 		return isAlive;
 	}

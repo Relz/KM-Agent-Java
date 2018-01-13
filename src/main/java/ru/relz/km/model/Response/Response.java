@@ -9,17 +9,17 @@ public class Response implements ResponseInterface {
 		this.errorType = errorType;
 	}
 
-	private TextInterface text;
+	private final TextInterface text;
 	public TextInterface getText() {
 		return text;
 	}
 
-	private String error;
+	private final String error;
 	public String getError() {
 		return error;
 	}
 
-	private ErrorType errorType;
+	private final ErrorType errorType;
 	public ErrorType getErrorType() {
 		return errorType;
 	}
