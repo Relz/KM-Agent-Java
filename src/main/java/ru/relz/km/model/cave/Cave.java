@@ -1,5 +1,6 @@
 package ru.relz.km.model.cave;
 
+import ru.relz.km.model.cave.Probability.Probability;
 import ru.relz.km.model.cave.Probability.ProbabilityInterface;
 
 public class Cave implements CaveInterface {
@@ -39,12 +40,8 @@ public class Cave implements CaveInterface {
 		this.hasBones = hasBones;
 	}
 
-	private ProbabilityInterface probability;
+	private final ProbabilityInterface probability = new Probability();
 	public ProbabilityInterface getProbability() {
 		return probability;
-	}
-
-	public void setProbability(ProbabilityInterface probability) {
-		this.probability = probability;
 	}
 }

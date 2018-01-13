@@ -16,5 +16,4 @@ public interface CaveInterface {
 	void setHasBones(boolean hasBones);
 
 	ProbabilityInterface getProbability();
-	void setProbability(ProbabilityInterface probability);
 }
