@@ -1,14 +1,25 @@
 package ru.relz.km.model.Response.agent;
 
+import ru.relz.km.model.Response.cave.CaveInterface;
 import ru.relz.km.model.agent.Direction;
 
+import java.util.List;
+
 public class Agent implements AgentInterface {
-	Agent(int arrowCount, String name, Direction direction, int legsCount, boolean isAlive) {
+	Agent(
+			int arrowCount,
+			String name,
+			Direction direction,
+			int legsCount,
+			boolean isAlive,
+			List<CaveInterface> knownCaves
+	) {
 		this.arrowCount = arrowCount;
 		this.name = name;
 		this.direction = direction;
 		this.legsCount = legsCount;
 		this.isAlive = isAlive;
+		this.knownCaves = knownCaves;
 	}
 
 	private final int arrowCount;
@@ -34,5 +45,10 @@ public class Agent implements AgentInterface {
 	private final boolean isAlive;
 	public boolean isAlive() {
 		return isAlive;
+	}
+
+	private final List<CaveInterface> knownCaves;
+	public List<CaveInterface> getKnownCaves() {
+		return knownCaves;
 	}
 }

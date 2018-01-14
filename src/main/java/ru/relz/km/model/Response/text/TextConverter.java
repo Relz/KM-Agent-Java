@@ -19,6 +19,7 @@ public class TextConverter implements JsonDeserializer<TextInterface> {
 				.registerTypeAdapter(Agent.class, new AgentConverter())
 				.create();
 		JsonElement notification = object.get("notification");
+
 		return new Text(
 				notification != null ? notification.getAsString() : null,
 				Code.createFromNumber(object.get("code").getAsInt()),

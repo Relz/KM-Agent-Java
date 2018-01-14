@@ -37,6 +37,7 @@ public class HttpRequestHelper {
 		if (caseId == null || userId == null || mapNum == null) {
 			setUp();
 		}
+
 		return "https://mooped.net/local/its/game/agentaction/?"
 				+ "caseid="
 				+ caseId
@@ -56,12 +57,14 @@ public class HttpRequestHelper {
 			request = HttpRequest.newBuilder().uri(new URI(createURL(action))).GET().build();
 			HttpResponse<String> httpResponse = httpClient.send(request, HttpResponse.BodyHandler.asString());
 			Gson gson = new GsonBuilder().registerTypeAdapter(Response.class, new ResponseConverter()).create();
+
 			return gson.fromJson(httpResponse.body(), new TypeToken<Response>(){}.getType());
 		} catch (URISyntaxException | UnresolvedAddressException e) {
 			System.out.println("Пожалуйста, проверьте ссылку на правильность: ");
 		} catch (InterruptedException | IOException e) {
 			e.printStackTrace();
 		}
+
 		return null;
 	}
 }

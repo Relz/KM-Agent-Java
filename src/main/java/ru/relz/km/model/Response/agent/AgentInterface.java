@@ -1,6 +1,9 @@
 package ru.relz.km.model.Response.agent;
 
+import ru.relz.km.model.Response.cave.CaveInterface;
 import ru.relz.km.model.agent.Direction;
+
+import java.util.List;
 
 public interface AgentInterface {
 	int getArrowCount();
@@ -8,4 +11,5 @@ public interface AgentInterface {
 	Direction getDirection();
 	int getLegsCount();
 	boolean isAlive();
+	List<CaveInterface> getKnownCaves();
 }

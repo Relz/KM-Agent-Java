@@ -15,6 +15,7 @@ public class ResponseConverter implements JsonDeserializer<ResponseInterface> {
 		Gson gson = new GsonBuilder().registerTypeAdapter(Text.class, new TextConverter()).create();
 		JsonElement error = object.get("error");
 		JsonElement errorType = object.get("error_type");
+
 		return new Response(
 				gson.fromJson(object.getAsJsonObject("text"), new TypeToken<Text>(){}.getType()),
 				(error.isJsonNull()) ? null : error.getAsString(),

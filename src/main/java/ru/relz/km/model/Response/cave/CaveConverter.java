@@ -9,6 +9,7 @@ public class CaveConverter implements JsonDeserializer<CaveInterface> {
 			JsonElement json, Type type, JsonDeserializationContext context
 	) throws JsonParseException {
 		JsonObject object = json.getAsJsonObject();
+
 		return new Cave(
 				object.get("colN").getAsInt(),
 				object.get("rowN").getAsInt(),
