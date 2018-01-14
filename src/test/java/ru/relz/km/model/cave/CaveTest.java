@@ -9,12 +9,12 @@ class CaveTest {
 	private CaveInterface cave;
 	@BeforeEach
 	void setUp() {
-		cave = new Cave();
+		cave = new Cave(false, false, false, false);
 	}
 
 	@Test
-	void isVisibleIsFalseByDefault() {
-		assertEquals(false, cave.isVisible());
+	void isVisible() {
+		assertFalse(cave.isVisible());
 	}
 
 	@Test
@@ -24,36 +24,36 @@ class CaveTest {
 	}
 
 	@Test
-	void isHasGoldIsFalseByDefault() {
-		assertEquals(false, cave.isHasGold());
+	void isHasGold() {
+		assertFalse(cave.hasGold());
 	}
 
 	@Test
 	void setHasGold() {
 		cave.setHasGold(true);
-		assertTrue(cave.isHasGold());
+		assertTrue(cave.hasGold());
 	}
 
 	@Test
-	void isHasWindIsFalseByDefault() {
-		assertEquals(false, cave.isHasWind());
+	void isHasWind() {
+		assertFalse(cave.hasWind());
 	}
 
 	@Test
 	void setHasWind() {
 		cave.setHasWind(true);
-		assertTrue(cave.isHasWind());
+		assertTrue(cave.hasWind());
 	}
 
 	@Test
-	void isHasBonesIsFalseByDefault() {
-		assertEquals(false, cave.isHasBones());
+	void isHasBones() {
+		assertFalse(cave.hasBones());
 	}
 
 	@Test
 	void setHasBones() {
 		cave.setHasBones(true);
-		assertTrue(cave.isHasBones());
+		assertTrue(cave.hasBones());
 	}
 
 	@Test
