@@ -1,9 +1,9 @@
-package ru.relz.km.model.Response;
+package ru.relz.km.model.response;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import ru.relz.km.model.Response.text.Text;
-import ru.relz.km.model.Response.text.TextConverter;
+import ru.relz.km.model.response.text.Text;
+import ru.relz.km.model.response.text.TextConverter;
 
 import java.lang.reflect.Type;
 

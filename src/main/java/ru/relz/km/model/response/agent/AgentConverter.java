@@ -1,10 +1,10 @@
-package ru.relz.km.model.Response.agent;
+package ru.relz.km.model.response.agent;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import ru.relz.km.model.Response.cave.Cave;
-import ru.relz.km.model.Response.cave.CaveConverter;
-import ru.relz.km.model.Response.cave.CaveInterface;
+import ru.relz.km.model.response.cave.Cave;
+import ru.relz.km.model.response.cave.CaveConverter;
+import ru.relz.km.model.response.cave.CaveInterface;
 import ru.relz.km.model.agent.Direction;
 
 import java.lang.reflect.Type;

@@ -1,4 +1,4 @@
-package ru.relz.km.model.Response;
+package ru.relz.km.model.response;
 
 import java.util.*;
 

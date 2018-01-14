@@ -1,9 +1,9 @@
-package ru.relz.km.model.Response;
+package ru.relz.km.model.response;
 
-import ru.relz.km.model.Response.text.TextInterface;
+import ru.relz.km.model.response.text.TextInterface;
 
 public class Response implements ResponseInterface {
-	public Response(TextInterface text, String error, ErrorType errorType) {
+	Response(TextInterface text, String error, ErrorType errorType) {
 		this.text = text;
 		this.error = error;
 		this.errorType = errorType;

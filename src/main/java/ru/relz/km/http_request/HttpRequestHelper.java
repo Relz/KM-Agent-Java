@@ -3,7 +3,7 @@ package ru.relz.km.http_request;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import jdk.incubator.http.*;
-import ru.relz.km.model.Response.*;
+import ru.relz.km.model.response.*;
 import ru.relz.km.model.action.Action;
 import ru.relz.km.properties.PropertiesHelper;
 

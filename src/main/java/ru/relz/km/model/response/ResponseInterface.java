@@ -1,6 +1,6 @@
-package ru.relz.km.model.Response;
+package ru.relz.km.model.response;
 
-import ru.relz.km.model.Response.text.TextInterface;
+import ru.relz.km.model.response.text.TextInterface;
 
 public interface ResponseInterface {
 	TextInterface getText();

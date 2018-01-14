@@ -1,7 +1,7 @@
-package ru.relz.km.model.Response.text;
+package ru.relz.km.model.response.text;
 
-import ru.relz.km.model.Response.agent.AgentInterface;
-import ru.relz.km.model.Response.cave.CaveInterface;
+import ru.relz.km.model.response.agent.AgentInterface;
+import ru.relz.km.model.response.cave.CaveInterface;
 
 public class Text implements TextInterface {
 	Text(String notification, Code code, CaveInterface currentCave, AgentInterface agent) {

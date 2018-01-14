@@ -1,11 +1,11 @@
-package ru.relz.km.model.Response.text;
+package ru.relz.km.model.response.text;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import ru.relz.km.model.Response.agent.Agent;
-import ru.relz.km.model.Response.agent.AgentConverter;
-import ru.relz.km.model.Response.cave.Cave;
-import ru.relz.km.model.Response.cave.CaveConverter;
+import ru.relz.km.model.response.agent.Agent;
+import ru.relz.km.model.response.agent.AgentConverter;
+import ru.relz.km.model.response.cave.Cave;
+import ru.relz.km.model.response.cave.CaveConverter;
 
 import java.lang.reflect.Type;
 
