@@ -6,13 +6,13 @@ public interface CaveInterface {
 	boolean isVisible();
 	void setVisible(boolean visible);
 
-	boolean hasGold();
+	Boolean hasGold();
 	void setHasGold(boolean hasGold);
 
-	boolean hasWind();
+	Boolean hasWind();
 	void setHasWind(boolean hasWind);
 
-	boolean hasBones();
+	Boolean hasBones();
 	void setHasBones(boolean hasBones);
 
 	ProbabilityInterface getProbability();

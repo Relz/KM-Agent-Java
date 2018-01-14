@@ -4,7 +4,7 @@ import ru.relz.km.model.cave.Probability.Probability;
 import ru.relz.km.model.cave.Probability.ProbabilityInterface;
 
 public class Cave implements CaveInterface {
-	public Cave(boolean isVisible, boolean hasGold, boolean hasWind, boolean hasBones) {
+	public Cave(boolean isVisible, Boolean hasGold, Boolean hasWind, Boolean hasBones) {
 		this.isVisible = isVisible;
 		this.hasGold = hasGold;
 		this.hasWind = hasWind;
@@ -20,8 +20,8 @@ public class Cave implements CaveInterface {
 		isVisible = visible;
 	}
 
-	private boolean hasGold;
-	public boolean hasGold() {
+	private Boolean hasGold;
+	public Boolean hasGold() {
 		return hasGold;
 	}
 
@@ -29,8 +29,8 @@ public class Cave implements CaveInterface {
 		this.hasGold = hasGold;
 	}
 
-	private boolean hasWind;
-	public boolean hasWind() {
+	private Boolean hasWind;
+	public Boolean hasWind() {
 		return hasWind;
 	}
 
@@ -38,8 +38,8 @@ public class Cave implements CaveInterface {
 		this.hasWind = hasWind;
 	}
 
-	private boolean hasBones;
-	public boolean hasBones() {
+	private Boolean hasBones;
+	public Boolean hasBones() {
 		return hasBones;
 	}
 
