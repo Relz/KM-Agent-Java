@@ -7,7 +7,7 @@ public class Probability implements ProbabilityInterface {
 	}
 
 	public void setMonsterProbability(float monsterProbability) {
-		this.monsterProbability = monsterProbability;
+		this.monsterProbability = clamp(monsterProbability);
 	}
 
 	private float holeProbability;
@@ -16,6 +16,10 @@ public class Probability implements ProbabilityInterface {
 	}
 
 	public void setHoleProbability(float holeProbability) {
-		this.holeProbability = holeProbability;
+		this.holeProbability = clamp(holeProbability);
+	}
+
+	private static float clamp(float val) {
+		return Math.max(0, Math.min(1, val));
 	}
 }
