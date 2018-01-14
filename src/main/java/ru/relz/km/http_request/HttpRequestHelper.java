@@ -13,6 +13,7 @@ import java.net.URISyntaxException;
 import java.nio.channels.UnresolvedAddressException;
 
 public class HttpRequestHelper {
+	private static final String configFileName = "src/main/resources/config.properties";
 	private static final HttpClient httpClient = HttpClient.newHttpClient();
 
 	private static String caseId;
@@ -20,7 +21,13 @@ public class HttpRequestHelper {
 	private static String mapNum;
 
 	private static void setUp() {
-		PropertiesHelper propertiesHelper = new PropertiesHelper();
+		PropertiesHelper propertiesHelper = null;
+		try {
+			propertiesHelper = new PropertiesHelper(configFileName);
+		} catch (IOException e) {
+			System.out.println("Не найден файл конфигурации: " + configFileName);
+			System.exit(1);
+		}
 		caseId = propertiesHelper.getCaseId();
 		userId = propertiesHelper.getUserId();
 		mapNum = propertiesHelper.getMapNum();
