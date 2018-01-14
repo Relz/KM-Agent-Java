@@ -1,8 +1,9 @@
 package ru.relz.km.model.Response.cave;
 
+import ru.relz.km.model.position.PositionInterface;
+
 public interface CaveInterface {
-	int getX();
-	int getY();
+	PositionInterface getPosition();
 	boolean isGold();
 	boolean isMonster();
 	boolean isHole();
