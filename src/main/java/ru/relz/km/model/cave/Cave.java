@@ -51,4 +51,13 @@ public class Cave implements CaveInterface {
 	public ProbabilityInterface getProbability() {
 		return probability;
 	}
+
+	public void update(boolean isVisible, Boolean hasGold, Boolean hasWind, Boolean hasBones) {
+		this.isVisible = isVisible;
+		this.hasGold = hasGold;
+		this.hasWind = hasWind;
+		this.hasBones = hasBones;
+		this.getProbability().setMonsterProbability(0);
+		this.getProbability().setHoleProbability(0);
+	}
 }
