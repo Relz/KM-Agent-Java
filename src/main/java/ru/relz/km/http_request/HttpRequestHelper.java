@@ -3,8 +3,8 @@ package ru.relz.km.http_request;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import jdk.incubator.http.*;
+import ru.relz.km.model.action.ActionInterface;
 import ru.relz.km.model.response.*;
-import ru.relz.km.model.action.Action;
 import ru.relz.km.properties.PropertiesHelper;
 
 import java.io.IOException;
@@ -33,7 +33,7 @@ public class HttpRequestHelper {
 		mapNum = propertiesHelper.getMapNum();
 	}
 
-	private static String createURL(Action action) {
+	private static String createURL(ActionInterface action) {
 		if (caseId == null || userId == null || mapNum == null) {
 			setUp();
 		}
@@ -51,7 +51,7 @@ public class HttpRequestHelper {
 				+ action.getActive();
 	}
 
-	public static ResponseInterface send(Action action) {
+	public static ResponseInterface send(ActionInterface action) {
 		HttpRequest request;
 		try {
 			request = HttpRequest.newBuilder().uri(new URI(createURL(action))).GET().build();
@@ -97,7 +97,6 @@ public class HttpRequestHelper {
 						System.out.println("Сервер вернул непонятное уведомление");
 					}
 			}
-			System.exit(1);
 		}
 
 		if (response.getText().getNotification() != null) {
