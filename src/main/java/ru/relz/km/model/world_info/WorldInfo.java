@@ -123,7 +123,7 @@ public class WorldInfo implements WorldInfoInterface {
 		return !knownCavesPositions.contains(position);
 	}
 
-	public static WorldInfo create(List<ru.relz.km.model.response.cave.CaveInterface> knownCaves) {
+	public static WorldInfoInterface create(List<ru.relz.km.model.response.cave.CaveInterface> knownCaves) {
 		return new WorldInfo(true, 2, false, knownCaves);
 	}
 }
