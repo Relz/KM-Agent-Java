@@ -24,7 +24,7 @@ public class AgentConverter implements JsonDeserializer<AgentInterface> {
 				object.get("aname").getAsString(),
 				Direction.createFromString(object.get("dir").getAsString()),
 				object.get("legscount").getAsInt(),
-				object.get("isagentalive").getAsBoolean(),
+				object.get("isagentalive").getAsInt() == 1,
 				deserializeKnownCaves(object.getAsJsonObject("knowCaves"))
 		);
 	}

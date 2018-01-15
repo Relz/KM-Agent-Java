@@ -9,7 +9,7 @@ public interface AgentInterface {
 	int getArrowCount();
 	String getName();
 	Direction getDirection();
-	int getLegsCount();
+	int getLegCount();
 	boolean isAlive();
 	List<CaveInterface> getKnownCaves();
 }

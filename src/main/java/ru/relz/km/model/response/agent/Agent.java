@@ -10,14 +10,14 @@ public class Agent implements AgentInterface {
 			int arrowCount,
 			String name,
 			Direction direction,
-			int legsCount,
+			int legCount,
 			boolean isAlive,
 			List<CaveInterface> knownCaves
 	) {
 		this.arrowCount = arrowCount;
 		this.name = name;
 		this.direction = direction;
-		this.legsCount = legsCount;
+		this.legCount = legCount;
 		this.isAlive = isAlive;
 		this.knownCaves = knownCaves;
 	}
@@ -37,9 +37,9 @@ public class Agent implements AgentInterface {
 		return direction;
 	}
 
-	private final int legsCount;
-	public int getLegsCount() {
-		return legsCount;
+	private final int legCount;
+	public int getLegCount() {
+		return legCount;
 	}
 
 	private final boolean isAlive;
