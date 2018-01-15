@@ -10,33 +10,33 @@ public enum Direction {
 	DOWN("Down"),
 	LEFT("Left");
 
-	private String string;
+	private final String string;
 	Direction(String string) {
 		this.string = string;
 	}
 
-	private static Map<String, Direction> stringToDirection = new HashMap<>(){{
+	private static final Map<String, Direction> stringToDirection = new HashMap<>(){{
 		put(UP.string, UP);
 		put(RIGHT.string, RIGHT);
 		put(DOWN.string, DOWN);
 		put(LEFT.string, LEFT);
 	}};
 
-	private static Map<Direction, Direction> inversions = new HashMap<>(){{
+	private static final Map<Direction, Direction> inversions = new HashMap<>(){{
 		put(UP, DOWN);
 		put(RIGHT, LEFT);
 		put(DOWN, UP);
 		put(LEFT, RIGHT);
 	}};
 
-	private static Map<Direction, Direction> lefts = new HashMap<>(){{
+	private static final Map<Direction, Direction> lefts = new HashMap<>(){{
 		put(UP, LEFT);
 		put(LEFT, DOWN);
 		put(DOWN, RIGHT);
 		put(RIGHT, UP);
 	}};
 
-	private static Map<Direction, Direction> rights = new HashMap<>(){{
+	private static final Map<Direction, Direction> rights = new HashMap<>(){{
 		put(UP, RIGHT);
 		put(RIGHT, DOWN);
 		put(DOWN, LEFT);

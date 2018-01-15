@@ -6,12 +6,12 @@ public enum ErrorType {
 	ERROR("error"),
 	NOTIFICATION("notification");
 
-	private String string;
+	private final String string;
 	ErrorType(String string) {
 		this.string = string;
 	}
 
-	private static Map<String, ErrorType> stringToErrorType = new HashMap<>(){{
+	private static final Map<String, ErrorType> stringToErrorType = new HashMap<>(){{
 		put(ERROR.string, ERROR);
 		put(NOTIFICATION.string, NOTIFICATION);
 	}};

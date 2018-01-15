@@ -13,12 +13,12 @@ public enum Code {
 	NO_ARROWS(4),
 	WALL_AHEAD(5);
 
-	private int number;
+	private final int number;
 	Code(int number) {
 		this.number = number;
 	}
 
-	private static Map<Integer, Code> codeToCode = new HashMap<>(){{
+	private static final Map<Integer, Code> codeToCode = new HashMap<>(){{
 		put(OK.number, OK);
 		put(WRONG_AGENT_TYPE.number, WRONG_AGENT_TYPE);
 		put(BAD_REQUEST.number, BAD_REQUEST);

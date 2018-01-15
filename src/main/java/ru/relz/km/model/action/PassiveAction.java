@@ -8,7 +8,7 @@ public enum PassiveAction {
 	TURN_LEFT("onLeft"),
 	TURN_RIGHT("onRight");
 
-	private String command;
+	private final String command;
 	PassiveAction(String command) {
 		this.command = command;
 	}

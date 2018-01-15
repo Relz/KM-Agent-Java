@@ -49,7 +49,7 @@ public class Agent implements AgentInterface {
 		return isAlive;
 	}
 
-	private boolean hasGold;
+	private final boolean hasGold;
 	public boolean isHasGold() {
 		return hasGold;
 	}

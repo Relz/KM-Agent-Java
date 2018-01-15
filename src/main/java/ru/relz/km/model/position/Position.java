@@ -11,12 +11,12 @@ public class Position implements PositionInterface {
 		this.y = limits == null ? y : Math.min(y, limits.getY());
 	}
 
-	private int x;
+	private final int x;
 	public int getX() {
 		return x;
 	}
 
-	private int y;
+	private final int y;
 	public int getY() {
 		return y;
 	}

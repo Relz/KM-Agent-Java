@@ -6,8 +6,8 @@ public enum ActiveAction {
 	SHOOT("Shoot"),
 	TAKE_GOLD("Take");
 
-	private String command;
-	private ActiveAction(String command) {
+	private final String command;
+	ActiveAction(String command) {
 		this.command = command;
 	}
 

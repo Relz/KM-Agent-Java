@@ -52,7 +52,7 @@
 					<target>9</target>
 					<compilerArgs>
 						<arg>--add-modules</arg>
-						<arg>jdk.incurbator.httpclient</arg>
+						<arg>jdk.incubator.httpclient</arg>
 					</compilerArgs>
 				</configuration>
 			</plugin>

@@ -5,7 +5,7 @@ public class WorldInfo implements WorldInfoInterface {
 		this.isMonsterAlive = isMonsterAlive;
 	}
 
-	private boolean isMonsterAlive;
+	private final boolean isMonsterAlive;
 	public boolean isMonsterAlive() {
 		return isMonsterAlive;
 	}

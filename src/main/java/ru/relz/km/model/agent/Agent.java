@@ -17,7 +17,7 @@ import ru.relz.km.model.world_info.WorldInfoInterface;
 import java.util.*;
 
 public class Agent implements AgentInterface {
-	private List<ActionInterface> actions = new ArrayList<>();
+	private final List<ActionInterface> actions = new ArrayList<>();
 
 	private Agent(
 			PositionInterface position,
