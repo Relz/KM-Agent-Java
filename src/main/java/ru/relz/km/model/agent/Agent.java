@@ -26,9 +26,10 @@ public class Agent implements AgentInterface {
 			Direction direction,
 			int legCount,
 			boolean isAlive,
+			boolean hasGold,
 			WorldInfoInterface worldInfo
 	) {
-		update(position, arrowCount, name, direction, legCount, isAlive);
+		update(position, arrowCount, name, direction, legCount, isAlive, hasGold);
 		this.worldInfo = worldInfo;
 	}
 
@@ -66,6 +67,11 @@ public class Agent implements AgentInterface {
 		return isAlive;
 	}
 
+	private boolean hasGold;
+	public boolean isHasGold() {
+		return hasGold;
+	}
+
 	private WorldInfoInterface worldInfo;
 	public void setWorldInfo(WorldInfoInterface worldInfo) {
 		this.worldInfo = worldInfo;
@@ -78,9 +84,6 @@ public class Agent implements AgentInterface {
 			}
 			ActiveAction activeAction = actions.remove(0).getActive();
 			switch (activeAction) {
-				case TAKE_GOLD:
-					System.out.println("Золото взял!");
-					return false;
 				case SHOOT:
 					System.out.println("Requiescat in pace, bastardo!");
 					if (worldInfo.isMonsterAlive()) {
@@ -115,10 +118,15 @@ public class Agent implements AgentInterface {
 				agent.getName(),
 				agent.getDirection(),
 				agent.getLegCount(),
-				agent.isAlive()
+				agent.isAlive(),
+				agent.isHasGold()
 		);
 		if (action.isNoAction()) {
 			worldInfo = WorldInfo.create(agent.getKnownCaves());
+		}
+		if (hasGold) {
+			System.out.println("Золото взял!");
+			return false;
 		}
 		worldInfo.setMonsterAlive(response.getText().isMonsterAlive());
 		System.out.printf("Я в пещере %s\n", newPosition.toString());
@@ -184,7 +192,8 @@ public class Agent implements AgentInterface {
 			String name,
 			Direction direction,
 			int legCount,
-			boolean isAlive
+			boolean isAlive,
+			boolean hasGold
 	) {
 		this.position = position;
 		this.arrowCount = arrowCount;
@@ -192,6 +201,7 @@ public class Agent implements AgentInterface {
 		this.direction = direction;
 		this.legCount = legCount;
 		this.isAlive = isAlive;
+		this.hasGold = hasGold;
 	}
 
 	private boolean createMonsterKillingActivity() {

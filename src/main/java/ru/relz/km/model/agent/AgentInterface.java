@@ -10,6 +10,7 @@ public interface AgentInterface {
 	Direction getDirection();
 	int getLegCount();
 	boolean isAlive();
+	boolean isHasGold();
 	void setWorldInfo(WorldInfoInterface worldInfo);
 	boolean proceed();
 }
