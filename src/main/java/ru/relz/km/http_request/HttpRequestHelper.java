@@ -58,7 +58,16 @@ public class HttpRequestHelper {
 			HttpResponse<String> httpResponse = httpClient.send(request, HttpResponse.BodyHandler.asString());
 			Gson gson = new GsonBuilder().registerTypeAdapter(Response.class, new ResponseConverter()).create();
 
-			return gson.fromJson(httpResponse.body(), new TypeToken<Response>(){}.getType());
+			ResponseInterface response = gson.fromJson(httpResponse.body(), new TypeToken<Response>(){}.getType());
+			if (response == null) {
+				System.out.println("Сервер прислал неожидаемый формат ответа");
+
+				return null;
+			}
+			showServerMessages(response);
+
+			return response;
+
 		} catch (URISyntaxException | UnresolvedAddressException e) {
 			System.out.println("Пожалуйста, проверьте ссылку на правильность: ");
 		} catch (InterruptedException | IOException e) {
@@ -66,5 +75,33 @@ public class HttpRequestHelper {
 		}
 
 		return null;
+	}
+
+	private static void showServerMessages(ResponseInterface response) {
+		if (response.getErrorType() != null) {
+			switch (response.getErrorType()) {
+				case ERROR:
+					if (response.getError() != null) {
+						System.out.printf(
+								"Сервер вернул ошибку с кодом %d: %s\n",
+								response.getText().getCode().getNumber(),
+								response.getError()
+						);
+					} else {
+						System.out.println("Сервер вернул непонятную ошибку");
+					}
+				case NOTIFICATION:
+					if (response.getError() != null) {
+						System.out.printf("Сервер вернул уведомление: %s\n", response.getError());
+					} else {
+						System.out.println("Сервер вернул непонятное уведомление");
+					}
+			}
+			System.exit(1);
+		}
+
+		if (response.getText().getNotification() != null) {
+			System.out.printf("Сервер отправил сообщение: %s\n", response.getText().getNotification());
+		}
 	}
 }
