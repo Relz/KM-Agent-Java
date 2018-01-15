@@ -1,5 +1,7 @@
 package ru.relz.km.model.agent;
 
+import ru.relz.km.model.position.PositionInterface;
+
 import java.util.*;
 
 public enum Direction {
@@ -59,5 +61,22 @@ public enum Direction {
 
 	public static Direction getRight(Direction direction) {
 		return rights.get(direction);
+	}
+
+	public static Direction createToPosition(PositionInterface from, PositionInterface to) {
+		if (from.getY() < to.getY()) {
+			return Direction.DOWN;
+		}
+		if (from.getX() < to.getX()) {
+			return Direction.RIGHT;
+		}
+		if (from.getY() > to.getY()) {
+			return Direction.UP;
+		}
+		if (from.getX() > to.getX()) {
+			return Direction.LEFT;
+		}
+
+		return null;
 	}
 }
