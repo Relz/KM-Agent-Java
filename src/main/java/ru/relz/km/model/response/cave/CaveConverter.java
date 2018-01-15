@@ -13,9 +13,9 @@ public class CaveConverter implements JsonDeserializer<CaveInterface> {
 
 		return new Cave(
 				new Position(object.get("colN").getAsInt(), object.get("rowN").getAsInt()),
-				object.get("isGold").getAsBoolean(),
-				object.get("isMonster").getAsBoolean(),
-				object.get("isHole").getAsBoolean(),
+				object.get("isGold").getAsInt() == 1,
+				object.get("isMonster").getAsInt() == 1,
+				object.get("isHole").getAsInt() == 1,
 				object.get("isWind").getAsBoolean(),
 				object.get("isBones").getAsBoolean()
 		);
