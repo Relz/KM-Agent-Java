@@ -90,6 +90,9 @@ public class Agent implements AgentInterface {
 						System.out.println("Похоже, монстр был не там");
 					} else {
 						System.out.println("Отлично! Главный агрессор обезврежен");
+						worldInfo.getCaves().get(worldInfo.getMonsterPosition()).getProbability().setMonsterProbability(0);
+						worldInfo.setMonsterAlive(false);
+						worldInfo.setMonsterPosition(null);
 					}
 			}
 			return true;
