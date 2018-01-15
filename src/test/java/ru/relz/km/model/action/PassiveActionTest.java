@@ -8,7 +8,7 @@ class PassiveActionTest {
 	@Test
 	void toStringReturnsActionCommand() {
 		assertEquals("noAct", PassiveAction.NO_ACTION.toString());
-		assertEquals("upSideDown", PassiveAction.TURN_AROUND.toString());
+		assertEquals("upSideDn", PassiveAction.TURN_AROUND.toString());
 		assertEquals("onLeft", PassiveAction.TURN_LEFT.toString());
 		assertEquals("onRight", PassiveAction.TURN_RIGHT.toString());
 	}

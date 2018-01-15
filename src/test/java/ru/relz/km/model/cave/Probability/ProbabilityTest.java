@@ -19,8 +19,11 @@ class ProbabilityTest {
 
 	@Test
 	void setMonsterProbability() {
+		probability.setMonsterProbability(0.5f);
+		assertEquals(0.5f, probability.getMonsterProbability());
+
 		probability.setMonsterProbability(1.5f);
-		assertEquals(1.5f, probability.getMonsterProbability());
+		assertEquals(1.f, probability.getMonsterProbability());
 	}
 
 	@Test
@@ -30,8 +33,11 @@ class ProbabilityTest {
 
 	@Test
 	void setHoleProbability() {
+		probability.setHoleProbability(0.7f);
+		assertEquals(0.7f, probability.getHoleProbability());
+
 		probability.setHoleProbability(1.5f);
-		assertEquals(1.5f, probability.getHoleProbability());
+		assertEquals(1.f, probability.getHoleProbability());
 	}
 
 }
