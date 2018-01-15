@@ -6,4 +6,6 @@ public interface ActionInterface {
 
 	ActiveAction getActive();
 	void setActive(ActiveAction active);
+
+	boolean isNoAction();
 }

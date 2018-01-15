@@ -18,4 +18,8 @@ public class Action implements ActionInterface {
 	public void setActive(ActiveAction active) {
 		this.active = active;
 	}
+
+	public boolean isNoAction() {
+		return passive == PassiveAction.NO_ACTION && active == ActiveAction.NO_ACTION;
+	}
 }
