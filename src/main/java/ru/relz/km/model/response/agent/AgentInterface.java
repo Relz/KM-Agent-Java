@@ -11,5 +11,6 @@ public interface AgentInterface {
 	Direction getDirection();
 	int getLegCount();
 	boolean isAlive();
+	boolean isHasGold();
 	List<CaveInterface> getKnownCaves();
 }
