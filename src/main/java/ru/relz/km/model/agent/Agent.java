@@ -137,24 +137,28 @@ public class Agent implements AgentInterface {
 		);
 		if (currentCave.hasHole()) {
 			if (getLegCount() > 0) {
+				worldInfo.getCaves().get(newPosition).getProbability().setHoleProbability(1.f);
 				System.out.println("Чёрт! Я провалился в пропасть и сломал ногу!");
 			} else {
 				System.out.println("*Хруст сломанной ноги и медленно затухающие в пустоту вопли*");
 			}
 		}
-		if (currentCave.hasBones()) {
-			if (worldInfo.isMonsterAlive()) {
-				System.out.println("Пещера полна чьих-то костей... монстр где-то рядом");
-				List<PositionInterface> aroundPositions = newPosition.getAroundPositions();
-				removeVisiblePositions(aroundPositions);
-				for (PositionInterface aroundPosition : aroundPositions) {
-					worldInfo.getCaves().get(aroundPosition).getProbability().increaseMonsterProbability(1.f / aroundPositions.size());
-					if (worldInfo.getCaves().get(aroundPosition).getProbability().getMonsterProbability() > 0.5f) {
-						worldInfo.setMonsterPosition(aroundPosition);
-					}
+		if (currentCave.hasBones() || worldInfo.isMonsterAlive()) {
+			System.out.println("Пещера полна чьих-то костей... монстр где-то рядом");
+			List<PositionInterface> aroundPositions = newPosition.getAroundPositions();
+			removeVisiblePositions(aroundPositions);
+			for (PositionInterface aroundPosition : aroundPositions) {
+				worldInfo.getCaves().get(aroundPosition).getProbability().increaseMonsterProbability(1.f / aroundPositions.size());
+				if (worldInfo.getCaves().get(aroundPosition).getProbability().getMonsterProbability() > 0.5f) {
+					worldInfo.setMonsterPosition(aroundPosition);
 				}
-			} else {
-				System.out.println("Хожу по костям, а ведь я мог пополнить коллекцию своими...");
+			}
+		} else {
+			System.out.println("Хожу по костям, а ведь я мог пополнить коллекцию своими...");
+			List<PositionInterface> aroundPositions = newPosition.getAroundPositions();
+			removeVisiblePositions(aroundPositions);
+			for (PositionInterface aroundPosition : aroundPositions) {
+				worldInfo.getCaves().get(aroundPosition).getProbability().setMonsterProbability(0);
 			}
 		}
 		if (currentCave.hasWind()) {
@@ -162,6 +166,12 @@ public class Agent implements AgentInterface {
 			List<PositionInterface> aroundPositions = newPosition.getAroundPositions();
 			for (PositionInterface aroundPosition : aroundPositions) {
 				worldInfo.getCaves().get(aroundPosition).getProbability().increaseHoleProbability(1.f / aroundPositions.size());
+			}
+		} else {
+			List<PositionInterface> aroundPositions = newPosition.getAroundPositions();
+			removeVisiblePositions(aroundPositions);
+			for (PositionInterface aroundPosition : aroundPositions) {
+				worldInfo.getCaves().get(aroundPosition).getProbability().setHoleProbability(0);
 			}
 		}
 		if (currentCave.hasMonster() && worldInfo.isMonsterAlive()) {
