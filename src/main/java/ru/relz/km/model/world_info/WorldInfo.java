@@ -38,6 +38,10 @@ public class WorldInfo implements WorldInfoInterface {
 		return monsterPosition;
 	}
 
+	public void setMonsterPosition(PositionInterface monsterPosition) {
+		this.monsterPosition = monsterPosition;
+	}
+
 	private int holeCount;
 	public int getHoleCount() {
 		return holeCount;
@@ -59,6 +63,10 @@ public class WorldInfo implements WorldInfoInterface {
 	private PositionInterface treasurePosition;
 	public PositionInterface getTreasurePosition() {
 		return treasurePosition;
+	}
+
+	public void setTreasurePosition(PositionInterface treasurePosition) {
+		this.treasurePosition = treasurePosition;
 	}
 
 	private final Map<PositionInterface, CaveInterface> caves = new HashMap<>();
@@ -108,7 +116,7 @@ public class WorldInfo implements WorldInfoInterface {
 		for (Map.Entry<PositionInterface, CaveInterface> caveEntry : this.caves.entrySet()) {
 			PositionInterface cavePosition = caveEntry.getKey();
 			CaveInterface cave = caveEntry.getValue();
-			if (cave.hasBones() && monsterPosition == null) {
+			if (cave.hasBones() != null && cave.hasBones() && monsterPosition == null) {
 				List<PositionInterface> aroundPositions = cavePosition.getAroundPositions();
 				for (PositionInterface aroundPosition : aroundPositions) {
 					if (isUnknownCave(aroundPosition)) {
@@ -116,7 +124,7 @@ public class WorldInfo implements WorldInfoInterface {
 					}
 				}
 			}
-			if (cave.hasWind()) {
+			if (cave.hasWind() != null && cave.hasWind()) {
 				List<PositionInterface> aroundPositions = cavePosition.getAroundPositions();
 				for (PositionInterface aroundPosition : aroundPositions) {
 					if (isUnknownCave(aroundPosition)) {

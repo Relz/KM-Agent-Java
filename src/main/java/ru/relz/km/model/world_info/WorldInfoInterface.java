@@ -10,6 +10,7 @@ public interface WorldInfoInterface {
 	void setMonsterAlive(boolean isMonsterAlive);
 
 	PositionInterface getMonsterPosition();
+	void setMonsterPosition(PositionInterface monsterPosition);
 
 	int getHoleCount();
 	void decreaseHoleCount();
@@ -17,6 +18,7 @@ public interface WorldInfoInterface {
 	boolean doesTreasureTaken();
 	void setDoesTreasureTaken(boolean doesTreasureTaken);
 
+	void setTreasurePosition(PositionInterface treasurePosition);
 	PositionInterface getTreasurePosition();
 
 	Map<PositionInterface, CaveInterface> getCaves();
