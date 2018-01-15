@@ -42,6 +42,15 @@ public class Position implements PositionInterface {
 		}};
 	}
 
+	public List<PositionInterface> getCrossPositions() {
+		return new ArrayList<>() {{
+			addAll(getUpPositions());
+			addAll(getRightPositions());
+			addAll(getDownPositions());
+			addAll(getLeftPositions());
+		}};
+	}
+
 	public PositionInterface getUpPosition() {
 		if (y - 1 >= 0) {
 			return new Position(x, y - 1);
@@ -102,10 +111,15 @@ public class Position implements PositionInterface {
 	public List<PositionInterface> getPreviousChain() {
 		return new ArrayList<>() {{
 			if (previous != null && previous.getPrevious() != null) {
-				add(previous);
 				addAll(previous.getPreviousChain());
+				add(previous);
 			}
 		}};
+	}
+
+	@Override
+	public String toString() {
+		return String.format("(%d, %d)", x, y);
 	}
 
 	private List<PositionInterface> getSidePositions(getSidePositionInterface getSidePosition) {

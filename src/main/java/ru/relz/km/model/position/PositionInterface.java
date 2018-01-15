@@ -7,6 +7,7 @@ public interface PositionInterface {
 	int getY();
 
 	List<PositionInterface> getAroundPositions();
+	List<PositionInterface> getCrossPositions();
 
 	PositionInterface getUpPosition();
 	List<PositionInterface> getUpPositions();
