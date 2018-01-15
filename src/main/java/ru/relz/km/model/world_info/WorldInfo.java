@@ -56,6 +56,11 @@ public class WorldInfo implements WorldInfoInterface {
 		this.doesTreasureTaken = doesTreasureTaken;
 	}
 
+	private PositionInterface treasurePosition;
+	public PositionInterface getTreasurePosition() {
+		return treasurePosition;
+	}
+
 	private final Map<PositionInterface, CaveInterface> caves = new HashMap<>();
 	public Map<PositionInterface, CaveInterface> getCaves() {
 		return caves;
@@ -82,6 +87,9 @@ public class WorldInfo implements WorldInfoInterface {
 			}
 			if (knownCave.hasHole()) {
 				cave.getProbability().setHoleProbability(1);
+			}
+			if (knownCave.hasGold()) {
+				treasurePosition = knownCave.getPosition();
 			}
 		}
 

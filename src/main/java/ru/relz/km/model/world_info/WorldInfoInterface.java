@@ -17,5 +17,7 @@ public interface WorldInfoInterface {
 	boolean doesTreasureTaken();
 	void setDoesTreasureTaken(boolean doesTreasureTaken);
 
+	PositionInterface getTreasurePosition();
+
 	Map<PositionInterface, CaveInterface> getCaves();
 }
