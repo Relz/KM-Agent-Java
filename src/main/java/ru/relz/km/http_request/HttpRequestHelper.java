@@ -38,17 +38,25 @@ public class HttpRequestHelper {
 			setUp();
 		}
 
-		return "https://mooped.net/local/its/game/agentaction/?"
-				+ "caseid="
-				+ caseId
-				+ "&userid="
-				+ userId
-				+ "&mapnum="
-				+ mapNum
+		return "https://mooped.net/local/its/tests/agentaction/?"
+				+ "hash="
+				+ ""
 				+ "&passive="
 				+ action.getPassive()
 				+ "&active="
 				+ action.getActive();
+
+//		return "https://mooped.net/local/its/game/agentaction/?"
+//				+ "caseid="
+//				+ caseId
+//				+ "&userid="
+//				+ userId
+//				+ "&mapnum="
+//				+ mapNum
+//				+ "&passive="
+//				+ action.getPassive()
+//				+ "&active="
+//				+ action.getActive();
 	}
 
 	public static ResponseInterface send(ActionInterface action) {

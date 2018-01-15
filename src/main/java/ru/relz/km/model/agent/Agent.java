@@ -143,18 +143,21 @@ public class Agent implements AgentInterface {
 				System.out.println("*Хруст сломанной ноги и медленно затухающие в пустоту вопли*");
 			}
 		}
-		if (currentCave.hasBones() || worldInfo.isMonsterAlive()) {
-			System.out.println("Пещера полна чьих-то костей... монстр где-то рядом");
-			List<PositionInterface> aroundPositions = newPosition.getAroundPositions();
-			removeVisiblePositions(aroundPositions);
-			for (PositionInterface aroundPosition : aroundPositions) {
-				worldInfo.getCaves().get(aroundPosition).getProbability().increaseMonsterProbability(1.f / aroundPositions.size());
-				if (worldInfo.getCaves().get(aroundPosition).getProbability().getMonsterProbability() > 0.5f) {
-					worldInfo.setMonsterPosition(aroundPosition);
+		if (currentCave.hasBones()) {
+			if (worldInfo.isMonsterAlive()) {
+				System.out.println("Пещера полна чьих-то костей... монстр где-то рядом");
+				List<PositionInterface> aroundPositions = newPosition.getAroundPositions();
+				removeVisiblePositions(aroundPositions);
+				for (PositionInterface aroundPosition : aroundPositions) {
+					worldInfo.getCaves().get(aroundPosition).getProbability().increaseMonsterProbability(1.f / aroundPositions.size());
+					if (worldInfo.getCaves().get(aroundPosition).getProbability().getMonsterProbability() > 0.5f) {
+						worldInfo.setMonsterPosition(aroundPosition);
+					}
 				}
+			} else {
+				System.out.println("Хожу по костям, а ведь я мог пополнить коллекцию своими...");
 			}
 		} else {
-			System.out.println("Хожу по костям, а ведь я мог пополнить коллекцию своими...");
 			List<PositionInterface> aroundPositions = newPosition.getAroundPositions();
 			removeVisiblePositions(aroundPositions);
 			for (PositionInterface aroundPosition : aroundPositions) {
