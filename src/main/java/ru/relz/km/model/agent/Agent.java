@@ -73,7 +73,9 @@ public class Agent implements AgentInterface {
 
 	public boolean proceed() {
 		if (!actions.isEmpty()) {
-			doAction(actions.get(0));
+			if (!doAction(actions.get(0))) {
+				return false;
+			}
 			ActiveAction activeAction = actions.remove(0).getActive();
 			switch (activeAction) {
 				case TAKE_GOLD:
@@ -99,10 +101,10 @@ public class Agent implements AgentInterface {
 		return true;
 	}
 
-	private void doAction(ActionInterface action) {
+	private boolean doAction(ActionInterface action) {
 		ResponseInterface response = HttpRequestHelper.send(action);
 		if (response == null) {
-			System.exit(1);
+			return false;
 		}
 		PositionInterface newPosition = response.getText().getCurrentCave().getPosition();
 		ru.relz.km.model.response.agent.AgentInterface agent = response.getText().getAgent();
@@ -165,13 +167,15 @@ public class Agent implements AgentInterface {
 		}
 		if (!agent.isAlive()) {
 			System.out.println("Жизнь великого рейнджера закончилась...");
-			System.exit(1);
+			return false;
 		}
 
 		if (response.getText().getCode() == Code.MOVING_LIMIT) {
 			System.out.println("Превышен лимит дейсвтий на карте");
-			System.exit(1);
+			return false;
 		}
+
+		return true;
 	}
 
 	private void update(
