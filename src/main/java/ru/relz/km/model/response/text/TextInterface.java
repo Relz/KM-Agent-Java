@@ -8,4 +8,5 @@ public interface TextInterface {
 	Code getCode();
 	CaveInterface getCurrentCave();
 	AgentInterface getAgent();
+	boolean isMonsterAlive();
 }
