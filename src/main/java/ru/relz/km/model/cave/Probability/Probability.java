@@ -10,6 +10,10 @@ public class Probability implements ProbabilityInterface {
 		this.monsterProbability = clamp(monsterProbability);
 	}
 
+	public void increaseMonsterProbability(float increaseValue) {
+		setMonsterProbability(monsterProbability + increaseValue);
+	}
+
 	private float holeProbability;
 	public float getHoleProbability() {
 		return holeProbability;
@@ -17,6 +21,10 @@ public class Probability implements ProbabilityInterface {
 
 	public void setHoleProbability(float holeProbability) {
 		this.holeProbability = clamp(holeProbability);
+	}
+
+	public void increaseHoleProbability(float increaseValue) {
+		setHoleProbability(holeProbability + increaseValue);
 	}
 
 	private static float clamp(float val) {
